@@ -127,10 +127,8 @@ This program also provides security scanning features to identify:
 - **Port 3389** (RDP) - Remote desktop exposure
 - **Port 445** (SMB) - Vulnerability to ransomware
 - **Port 1433** (SQL Server) - Database exposure
-<<<<<<< HEAD
 - **...**
-=======
->>>>>>> f936be0009079af7cd5a97617c61b05fb14c1bd1
+
 
 ## Troubleshooting
 
