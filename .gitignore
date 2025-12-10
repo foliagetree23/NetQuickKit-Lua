@@ -1,0 +1,41 @@
+# Lua compiled files
+*.luac
+*.o
+
+# LuaRocks
+.luarocks/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# Backup files
+*.bak
+*.backup
+
+# Test coverage files
+*.lcov
