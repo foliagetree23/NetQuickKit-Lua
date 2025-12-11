@@ -25,10 +25,12 @@ function show_main_menu()
     utils.print_colored("   1.5 Network Connectivity Check", "yellow")
     print()
     
+
     utils.print_colored("2. Network Interface Info", "white")
     utils.print_colored("   2.1 Interface Information", "yellow")
     utils.print_colored("   2.2 Network Statistics", "yellow")
     utils.print_colored("   2.3 Active Connections Monitor", "yellow")
+    utils.print_colored("   2.4 ARP Table Display", "yellow")
     print()
     
     utils.print_colored("3. Port Scanner", "white")
@@ -68,6 +70,7 @@ end
 
 
 
+
 -- Function for Network Interface Info submenu
 function show_interface_menu()
     utils.clear_screen()
@@ -77,6 +80,7 @@ function show_interface_menu()
     utils.print_colored("1. Interface Information", "white")
     utils.print_colored("2. Network Statistics", "white")
     utils.print_colored("3. Active Connections Monitor", "white")
+    utils.print_colored("4. ARP Table Display", "white")
     print()
     utils.print_colored("0. Back to Main Menu", "red")
     print()
@@ -187,11 +191,20 @@ function menu_network_stats()
     utils.pause()
 end
 
+
 -- Function for Active Connections Monitor menu
 function menu_monitor_connections()
     NetworkUtils.monitor_connections()
     utils.pause()
 end
+
+-- Function for ARP Table Display menu
+function menu_arp_table()
+    NetworkUtils.display_arp_table()
+    utils.pause()
+end
+
+
 
 
 -- Function for Quick Port Scan menu
@@ -352,10 +365,11 @@ function run_main_program()
                 end
             end
         elseif choice == "2" then
+
             -- Network Interface Info Submenu
             while true do
                 show_interface_menu()
-                local sub_choice = utils.get_input("Select submenu (0-3)")
+                local sub_choice = utils.get_input("Select submenu (0-4)")
                 
                 if sub_choice == "0" then
                     break
@@ -365,6 +379,8 @@ function run_main_program()
                     menu_network_stats()
                 elseif sub_choice == "3" then
                     menu_monitor_connections()
+                elseif sub_choice == "4" then
+                    menu_arp_table()
                 else
                     utils.print_formatted("Invalid choice", "error", "red")
                     utils.pause()

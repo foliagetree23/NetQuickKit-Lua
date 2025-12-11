@@ -13,10 +13,12 @@ A comprehensive network utility program for IT Administrators built using Lua. T
 - **Traceroute**: Trace path to destination host
 - **Network Connectivity Check**: Test connectivity to several common hosts
 
+
 ### 2. Network Interface Info
 - **Interface Information**: View network interface information and IP addresses
 - **Network Statistics**: Monitor traffic and network statistics
 - **Active Connections Monitor**: Monitor active connections on the system
+- **ARP Table Display**: View ARP table entries showing IP to MAC address mappings
 
 ### 3. Port Scanner
 - **Quick Port Scan**: Scan common ports (16 predefined ports)
@@ -64,6 +66,7 @@ lua main.lua
 - Required input will be requested interactively
 
 
+
 ### Usage Examples
 
 #### 1. Ping Test
@@ -94,6 +97,12 @@ Enter ports: 80,443,8080,3306
 Select menu: 5 (Security Tools)
 Select submenu: 1 (Basic Security Scan)
 Enter hostname/IP: target-server.com
+```
+
+#### 5. ARP Table Display
+```
+Select menu: 2 (Network Interface Info)
+Select submenu: 4 (ARP Table Display)
 ```
 
 

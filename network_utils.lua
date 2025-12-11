@@ -291,6 +291,7 @@ function NetworkUtils.network_stats()
     return true
 end
 
+
 -- Function to check network connectivity
 function NetworkUtils.check_connectivity()
     utils.print_formatted("Checking network connectivity", "info", "blue")
@@ -314,6 +315,42 @@ function NetworkUtils.check_connectivity()
         else
             utils.print_formatted(host .. " - UNREACHABLE", "error", "red")
         end
+    end
+    
+    return true
+end
+
+-- Function to display ARP table
+function NetworkUtils.display_arp_table()
+    utils.print_formatted("Displaying ARP table", "info", "blue")
+    
+    local cmd = "arp -a"
+    local file = io.popen(cmd)
+    local result = file:read("*all")
+    file:close()
+    
+    if result and result:match("%S") then
+        utils.print_colored("ARP Table:", "cyan")
+        utils.print_colored("======================================", "cyan")
+        
+        -- Parse ARP table entries
+        local entries = {}
+        for line in result:gmatch("[^\n]+") do
+            if line:match("%d+%.%d+%.%d+%.%d+") then
+                table.insert(entries, line)
+            end
+        end
+        
+        if #entries > 0 then
+            for _, entry in ipairs(entries) do
+                utils.print_colored(entry, "white")
+            end
+            utils.print_formatted(string.format("Found %d ARP entries", #entries), "success", "green")
+        else
+            utils.print_formatted("No ARP entries found", "warning", "yellow")
+        end
+    else
+        utils.print_formatted("ARP table is empty or command failed", "warning", "yellow")
     end
     
     return true
