@@ -161,7 +161,7 @@ This program can be further developed by adding:
 
 ## License
 
-This program is created for IT Administrator purposes and educational use.
+This program is created for IT Administrator purposes and educational use. Licensed under the terms GNU GPL Version 1.
 
 ## Support
 
